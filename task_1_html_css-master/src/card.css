@@ -1,31 +1,96 @@
+:root {
+  --border-color: #ccc;
+  --border-radius: 10px;
+  --space: 1rem;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+  align-items: flex-start;
+}
+
 article {
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   width: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   line-height: 1.5rem;
+}
 
-  & header {
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--space);
+article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+}
 
-    & a {
-      text-decoration: none;
-    }
-  }
+article header a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #555;
+}
 
-  & main {
-    padding: var(--space);
-    width: inherit;
-    & img {
-      width: inherit;
-    }
-  }
+article main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space);
+  align-items: flex-start;
+}
 
-  & footer {
-    border-top: 1px solid var(--border-color);
-    & ul {
-      padding: 0;
-      list-style: none;
-    }
-  }
+article main img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+article:not(:has(header)) img {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+article:not(:has(footer)) img {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+article footer {
+  border-top: 1px solid var(--border-color);
+  padding: 0.5rem 0;
+}
+
+article footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+article footer li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+article footer li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: var(--border-color);
 }
