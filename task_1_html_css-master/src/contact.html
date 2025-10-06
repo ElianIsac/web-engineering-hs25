@@ -10,41 +10,74 @@
     <script src="./main.ts" type="module"></script>
   </head>
   <body>
+  <input type="checkbox" id="menu-toggle" hidden />
+
+  <div class="sidebar">
+    <ul>
+      <li>
+        <a href="/" title="Home"><i class="fa-solid fa-home"></i> Home</a>
+      </li>
+      <li>
+        <a href="/" title="Dashboard"><i class="fa-solid fa-dashboard"></i> Dashboard</a>
+      </li>
+      <li>
+        <a href="/" title="Profile"><i class="fa-solid fa-user"></i> Profile</a>
+      </li>
+      <li>
+        <a href="./contact.html" title="Contact" class="active"><i class="fa-solid fa-message"></i> Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="rightside">
     <header>
       <h1>Contact</h1>
+      <div class="header-icons">
+        <label for="menu-toggle" class="menu-button">
+          <i class="fa fa-solid fa-bars"></i>
+        </label>
+      </div>
     </header>
 
-    <section>
-      <ul>
-        <li>
-          <a href="/" title="Home"
-            ><i class="fa-solid fa-home"></i> <span>Home</span></a
-          >
-        </li>
-        <li>
-          <a href="/" title="Dashboard"
-            ><i class="fa-solid fa-dashboard"></i> <span>Dashboard</span></a
-          >
-        </li>
-        <li>
-          <a href="/" title="Profile"
-            ><i class="fa-solid fa-user"></i> <span>Profile</span></a
-          >
-        </li>
-        <li>
-          <a href="./contact.html" title="Contact"
-            ><i class="fa-solid fa-message"></i> <span>Contact</span></a
-          >
-        </li>
-      </ul>
-    </section>
-
     <main>
-<!--      TODO add form here-->
+      <form id="contact-form" action="#" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required minlength="2" />
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="jane.doe@example.com" required />
+
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" required />
+
+        <label>What do you like the most?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="fav" value="js" required /> JS</label>
+          <label><input type="radio" name="fav" value="html" /> HTML</label>
+          <label><input type="radio" name="fav" value="css" /> CSS</label>
+          <label><input type="radio" name="fav" value="none" /> Cannot make a decision.</label>
+        </div>
+
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" placeholder="Enter your message here…" minlength="10" required></textarea>
+
+        <div class="checkbox-row">
+          <label>
+            <input type="checkbox" name="newsletter" required />
+            Yes, I want to receive your very important spam messages!
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button type="submit">Send</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+      </form>
     </main>
 
-    <footer>
-      <div>Made with <i class="fa-solid fa-heart"></i> by David Sichau</div>
+    <footer class="page-footer">
+      Made with <i class="fa-solid fa-heart"></i> by David Sichau
     </footer>
-  </body>
+  </div>
+</body>
 </html>
